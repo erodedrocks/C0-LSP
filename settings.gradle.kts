@@ -1,0 +1,1 @@
+rootProject.name = "C0-LSP"

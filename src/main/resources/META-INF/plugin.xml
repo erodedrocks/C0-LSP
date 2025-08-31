@@ -1,0 +1,49 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>erodedrocks.C0-LSP</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>C0-LSP</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor>Not Endorsed by CMU</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description>This is an LSP client plugin for the C0 language for CLion.</description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.ultimate</depends>
+    <depends>org.jetbrains.plugins.textmate</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <platform.lsp.serverSupportProvider implementation="erodedrocks.c0lsp.C0LspServerSupportProvider"/>
+        <applicationService serviceImplementation="erodedrocks.c0lsp.settings.AppSettings"/>
+        <applicationConfigurable
+                parentId="language"
+                instance="erodedrocks.c0lsp.settings.AppSettingsConfigurable"
+                id="erodedrocks.c0lsp.settings.AppSettingsConfigurable"
+                displayName="C0"/>
+        <fileType
+                name="C0"
+                implementationClass="erodedrocks.c0lsp.language.C0FileType"
+                fieldName="INSTANCE"
+                language="c0"
+                extensions="c0"/>
+        <editorHighlighterProvider
+                filetype="C0"
+                implementationClass="erodedrocks.c0lsp.C0TextMateEditorHighlighterProvider"
+        />
+        <lang.syntaxHighlighterFactory
+                language="c0"
+                implementationClass="erodedrocks.c0lsp.C0TextMateSyntaxHighlighterFactory"
+        />
+        <textmate.bundleProvider implementation="erodedrocks.c0lsp.C0TextMateBundleProvider" />
+    </extensions>
+</idea-plugin>
