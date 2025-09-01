@@ -24,7 +24,6 @@ class C0TextMateBundleProvider : TextMateBundleProvider {
             "Syntaxes/BC0.tmLanguage",
             "Syntaxes/C0.tmLanguage",
             "Syntaxes/Clac.tmLanguage",
-            "Themes/C0-dark.color-theme.tmTheme",
             "info.plist"
         )
 
