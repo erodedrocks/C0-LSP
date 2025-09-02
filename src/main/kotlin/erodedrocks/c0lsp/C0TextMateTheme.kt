@@ -69,7 +69,7 @@ class C0TextMateTheme private constructor(val name: String) {
 
                     this.put("constant.numeric", "DEFAULT_NUMBER")
 
-                    this.put("constant.language", "EXECUTIONPOINT_ATTRIBUTES")
+                    this.put("constant.language", "GHERKIN_REGEXP_PARAMETER")
 
                     this.put("punctuation.definition.statement.clac", "TEMPLATE_VARIABLE_ATTRIBUTES")
                     this.put("punctuation.terminator.statement.clac", "TEMPLATE_VARIABLE_ATTRIBUTES")
